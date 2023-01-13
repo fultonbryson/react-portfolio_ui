@@ -1,3 +1,3 @@
-export const Navbar = (props: any) => {
-  return <div className={`${props.page}__navbar`}>Navbar goes here</div>;
+export const Footer = () => {
+  return <div className='footer'>Footer goes here</div>;
 };
