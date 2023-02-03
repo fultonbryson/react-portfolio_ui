@@ -1,12 +1,16 @@
-import { Footer } from "./components/pageElements";
-import { NavDrawer } from "./components/NavDrawer";
-import AppRouter from "./utils/Router";
+import { Footer } from "./components/elements/pageElements";
+import { Header } from "./components/elements/Header";
+import { Routes, Route } from "react-router-dom";
+import { appRoutes } from "./utils/Routes";
 
 function App() {
   return (
     <>
-      <NavDrawer />
-      <AppRouter />
+      <Routes>
+        {appRoutes.map((route) => (
+          <Route path={route.path} element={route.element} />
+        ))}
+      </Routes>
       <Footer />
     </>
   );
