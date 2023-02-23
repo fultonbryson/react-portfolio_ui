@@ -22,7 +22,7 @@ export const NavDrawer = () => {
             fontFamily: Fonts.primary,
           },
           closeButton: {
-            color: Colors.primary,
+            color: Colors.white,
           },
         }}
         sx={{ fontSize: 20 }}>
@@ -44,7 +44,7 @@ export const NavDrawer = () => {
           size='md'
           opened={opened}
           onClick={() => setOpened(true)}
-          color={Colors.primary}
+          color={Colors.white}
         />
       </Group>
     </>

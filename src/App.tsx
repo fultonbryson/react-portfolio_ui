@@ -1,5 +1,4 @@
 import { Footer } from "./components/elements/pageElements";
-import { Header } from "./components/elements/Header";
 import { Routes, Route } from "react-router-dom";
 import { appRoutes } from "./utils/Routes";
 

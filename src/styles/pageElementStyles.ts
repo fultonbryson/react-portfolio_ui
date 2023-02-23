@@ -1,16 +1,19 @@
 import styled from "styled-components";
-import { Fonts } from "./styleVariables";
+import { Colors, Fonts } from "./styleVariables";
 
 export const HeaderText = styled.p`
   font-family: "${Fonts.primary}";
+  color: ${Colors.white};
   font-size: 30px;
   font-weight: 700;
-  margin: 16px 0px 0px 0px;
+  margin: 0px;
 `;
 
 export const SubheaderText = styled.p`
   font-family: "${Fonts.secondary}";
   font-size: 18px;
+  color: ${Colors.white};
+  margin: 0px;
 `;
 
 // export const LinkText = styled.a`
