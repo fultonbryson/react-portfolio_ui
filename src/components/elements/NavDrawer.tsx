@@ -31,6 +31,7 @@ export const NavDrawer = () => {
           sx={{ flexDirection: "column", alignItems: "flex-start" }}>
           {appRoutes.map((route) => (
             <NavItem
+              key={route.path}
               path={route.path}
               title={route.title}
               onClick={() => setOpened(false)}

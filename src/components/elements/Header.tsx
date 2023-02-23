@@ -13,7 +13,7 @@ export const Header = (props: any) => {
         paddingLeft: 16,
         paddingRight: 16,
         background: Colors.primary,
-        height: 120,
+        height: 100,
       }}>
       <NavDrawer />
 
