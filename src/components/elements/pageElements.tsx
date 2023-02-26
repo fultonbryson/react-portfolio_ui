@@ -1,10 +1,6 @@
 import { Link } from "react-router-dom";
 import { Colors, Fonts } from "../../styles/styleVariables";
 
-export const Footer = () => {
-  return <div className='footer'>Footer goes here</div>;
-};
-
 export const NavItem = (props: any) => {
   return (
     <Link

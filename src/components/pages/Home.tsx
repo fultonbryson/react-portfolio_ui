@@ -93,7 +93,7 @@ export const Home = () => {
         align='center'
         direction='column'
         wrap='nowrap'
-        mb={10}>
+        pb={16}>
         {portfolioItems()}
       </Flex>
     </>

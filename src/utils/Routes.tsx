@@ -19,9 +19,9 @@ export const appRoutes = [
     element: <Contact />,
     title: "Contact",
   },
-  {
-    path: "/blog",
-    element: <Blog />,
-    title: "Blog",
-  },
+  // {
+  //   path: "/blog",
+  //   element: <Blog />,
+  //   title: "Blog",
+  // },
 ];

@@ -11,9 +11,10 @@ export const Bio = () => {
     <>
       <Header title='Bio' subtitle='All About Me' />
 
-      <Group position='center' sx={{ padding: 16 }}>
+      <Flex direction='column' align='center' sx={{ padding: 18 }}>
         <Text
           color={Colors.primary}
+          pb={16}
           weight={700}
           size={22}
           sx={{ fontFamily: Fonts.primary }}
@@ -21,7 +22,7 @@ export const Bio = () => {
           Developer, Musician, Husband
         </Text>
 
-        <Group position='center'>
+        <Group position='center' pb={16}>
           <Box>
             <Image src={me} height={300} sx={{ maxWidth: 300 }} />
           </Box>
@@ -33,7 +34,7 @@ export const Bio = () => {
           </Box>
         </Group>
 
-        <Group position='center' sx={{ padding: 16 }}>
+        <Group position='center' pb={16}>
           <Box>
             <Image src={bass} height={300} sx={{ maxWidth: 300 }} />
           </Box>
@@ -45,7 +46,7 @@ export const Bio = () => {
           </Box>
         </Group>
 
-        <Group position='center' sx={{ padding: 16 }}>
+        <Group position='center' pb={16}>
           <Box>
             <Image src={show} height={300} width={300} sx={{ maxWidth: 300 }} />
           </Box>
@@ -56,7 +57,7 @@ export const Bio = () => {
             </Text>
           </Box>
         </Group>
-      </Group>
+      </Flex>
     </>
   );
 };
