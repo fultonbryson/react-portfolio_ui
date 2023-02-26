@@ -19,6 +19,7 @@ export const PortfolioCard = (props: any) => {
       withBorder
       sx={{
         maxWidth: 370,
+        width: "80%",
       }}
       key={props.portfolioItem.id}>
       <Card.Section sx={{ maxHeight: 160, height: 160 }} mx='auto'>

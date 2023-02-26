@@ -10,8 +10,8 @@ export const Header = (props: any) => {
       position='apart'
       align='center'
       sx={{
-        paddingLeft: 16,
-        paddingRight: 16,
+        paddingLeft: 24,
+        paddingRight: 24,
         background: Colors.primary,
         height: 100,
       }}>

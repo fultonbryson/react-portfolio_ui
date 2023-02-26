@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { API_URL } from "../../utils/API";
 import { Header } from "../elements/Header";
-import { PortfolioCard } from "../elements/portfolioElements";
+import { PortfolioCard } from "../elements/PortfolioCard";
 import axios from "axios";
 import { Button, Flex } from "@mantine/core";
 
@@ -92,7 +92,8 @@ export const Home = () => {
         justify='flex-start'
         align='center'
         direction='column'
-        wrap='nowrap'>
+        wrap='nowrap'
+        mb={10}>
         {portfolioItems()}
       </Flex>
     </>
