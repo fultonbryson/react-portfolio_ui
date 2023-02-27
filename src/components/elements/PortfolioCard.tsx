@@ -9,6 +9,7 @@ import {
   Button,
   Center,
 } from "@mantine/core";
+import { Fonts } from "../../styles/styleVariables";
 
 export const PortfolioCard = (props: any) => {
   return (
@@ -48,29 +49,36 @@ export const PortfolioCard = (props: any) => {
       </Card.Section>
 
       <Group position='apart' mt='md' mb='xs'>
-        <Text weight={500}>{props.portfolioItem.name}</Text>
+        <Text weight={500} sx={{ fontFamily: Fonts.primary }}>
+          {props.portfolioItem.name}
+        </Text>
         {props.portfolioItem.category && (
-          <Badge color='pink' variant='light'>
+          <Badge
+            sx={{ fontFamily: Fonts.primary, letterSpacing: 1 }}
+            color='green'
+            variant='light'>
             {props.portfolioItem.category}
           </Badge>
         )}
       </Group>
 
-      <Text size='sm' color='dimmed'>
+      <Text sx={{ fontFamily: Fonts.secondary }} size='sm' color='dimmed'>
         {props.portfolioItem.description}
       </Text>
 
-      <Button
-        variant='light'
-        color='grape'
-        fullWidth
-        mt='md'
-        radius='md'
-        onClick={() => window.open(props.portfolioItem.url)}>
-        {props.portfolioItem.name !== "Contact Me"
-          ? `Visit ${props.portfolioItem.name}`
-          : props.portfolioItem.name}
-      </Button>
+      <Group position='center'>
+        <Button
+          variant='light'
+          color='grape'
+          size='sm'
+          mt='md'
+          radius='md'
+          onClick={() => window.open(props.portfolioItem.url)}>
+          {props.portfolioItem.name !== "Contact Me"
+            ? `Visit ${props.portfolioItem.name}`
+            : props.portfolioItem.name}
+        </Button>
+      </Group>
     </Card>
   );
 };

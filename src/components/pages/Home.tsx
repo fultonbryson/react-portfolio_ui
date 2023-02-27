@@ -2,10 +2,14 @@ import { useEffect, useState } from "react";
 import { API_URL } from "../../utils/API";
 import { Header } from "../elements/Header";
 import { PortfolioCard } from "../elements/PortfolioCard";
+import { useWindowScroll } from "@mantine/hooks";
 import axios from "axios";
-import { Button, Flex } from "@mantine/core";
+import { Affix, Button, Flex, Transition, ActionIcon } from "@mantine/core";
+import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const Home = () => {
+  const [scroll, scrollTo] = useWindowScroll();
   const [portfolioData, setPortfolioData] = useState<any[]>([]);
   const [filteredData, setFilteredData] = useState<any[]>([]);
   const [filter, setFilter] = useState<string>("");
@@ -96,6 +100,22 @@ export const Home = () => {
         pb={16}>
         {portfolioItems()}
       </Flex>
+
+      <Affix position={{ bottom: 30, right: 0 }}>
+        <Transition transition='slide-up' mounted={scroll.y > 0}>
+          {(transitionStyles) => (
+            <ActionIcon
+              color='green'
+              variant='transparent'
+              radius='xl'
+              size='xl'
+              style={transitionStyles}
+              onClick={() => scrollTo({ y: 0 })}>
+              <FontAwesomeIcon size='lg' icon={faArrowUp} />
+            </ActionIcon>
+          )}
+        </Transition>
+      </Affix>
     </>
   );
 };
