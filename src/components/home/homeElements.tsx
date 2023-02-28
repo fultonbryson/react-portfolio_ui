@@ -14,6 +14,7 @@ import {
 import { Carousel } from "@mantine/carousel";
 import { Fonts } from "../../styles/styleVariables";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 //
 
@@ -106,6 +107,7 @@ export const PortfolioCard = (props: any) => {
 
 export const CarouselCard = (props: any) => {
   const [opened, setOpened] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <Card
@@ -193,7 +195,25 @@ export const CarouselCard = (props: any) => {
             </Badge>
           )}
 
-          <Text>{props.portfolioItem.description}</Text>
+          <Text sx={{ fontFamily: Fonts.secondary }}>
+            {props.portfolioItem.description}
+          </Text>
+
+          <Button
+            variant='light'
+            color='grape'
+            size='sm'
+            mt='md'
+            radius='md'
+            onClick={() =>
+              props.portfolioItem.url
+                ? window.open(props.portfolioItem.url)
+                : navigate("/contact")
+            }>
+            {props.portfolioItem.name !== "Contact Me"
+              ? `Visit ${props.portfolioItem.name}`
+              : props.portfolioItem.name}
+          </Button>
         </Group>
       </Modal>
 
@@ -205,9 +225,7 @@ export const CarouselCard = (props: any) => {
           mt='md'
           radius='md'
           onClick={() => setOpened(true)}>
-          {props.portfolioItem.name !== "Contact Me"
-            ? `Details`
-            : props.portfolioItem.name}
+          Details
         </Button>
       </Group>
     </Card>
