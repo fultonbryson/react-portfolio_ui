@@ -19,7 +19,8 @@ export const PortfolioCard = (props: any) => {
       radius='md'
       withBorder
       sx={{
-        maxWidth: 370,
+        maxWidth: 375,
+        minWidth: 300,
         width: "80%",
       }}
       key={props.portfolioItem.id}>

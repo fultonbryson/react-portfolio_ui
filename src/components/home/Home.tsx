@@ -1,0 +1,108 @@
+import { useEffect, useState } from "react";
+import { API_URL } from "../../utils/API";
+import { Header } from "../elements/Header";
+import axios from "axios";
+import { Flex, Group } from "@mantine/core";
+import { useSelector } from "react-redux";
+import { RootState } from "../../utils/store";
+import { TopScroller } from "../elements/pageElements";
+import {
+  FilterButton,
+  PortfolioCard,
+  PortfolioDesktopView,
+  PortfolioMobileView,
+} from "./homeElements";
+
+export const Home = () => {
+  const [portfolioData, setPortfolioData] = useState<any[]>([]);
+  const [filteredData, setFilteredData] = useState<any[]>([]);
+  const [filter, setFilter] = useState<string>("");
+  const displayType = useSelector(
+    (state: RootState) => state.screen.displayType
+  );
+
+  const handleFilter = (filter: any) => {
+    setFilter(filter);
+    setFilteredData(
+      portfolioData.filter((item) => {
+        return item.category === filter;
+      })
+    );
+  };
+
+  const portfolioItems = () => {
+    return filteredData.length >= 0 && filter
+      ? filteredData.map((item) => {
+          return <PortfolioCard key={item.id} portfolioItem={item} />;
+        })
+      : portfolioData.map((item) => {
+          return <PortfolioCard key={item.id} portfolioItem={item} />;
+        });
+  };
+
+  const getPortfolioItems = () => {
+    axios
+      .get(`${API_URL}/portfolio/portfolio_items`)
+      .then((res) => {
+        setPortfolioData(res.data.portfolio_items);
+
+        console.log(res.data.portfolio_items);
+      })
+      .catch((err) => {
+        console.log("Error Getting Portfolio Items", err);
+      });
+  };
+
+  useEffect(() => {
+    getPortfolioItems();
+  }, []);
+
+  return (
+    <>
+      <Header title='Bryson Fulton' subtitle='Full Stack Developer' />
+
+      <Flex
+        mih={50}
+        bg={
+          displayType === "MOBILE" ? "rgba(0, 0, 0, 0.1)" : "rgba(0, 0, 0, 0)"
+        }
+        justify='flex-start'
+        align='flex-start'
+        sx={{ top: 100 }}>
+        <FilterButton
+          handleFilter={handleFilter}
+          filterCategory={"Maintainer"}
+          filterType={"Maintainer"}
+        />
+        <FilterButton
+          handleFilter={handleFilter}
+          filterCategory='Contributor'
+          filterType='Contributor'
+        />
+        <FilterButton
+          handleFilter={handleFilter}
+          filterCategory={""}
+          filterType='All'
+        />
+      </Flex>
+
+      <Group position='center'>
+        {displayType === "MOBILE" ? (
+          <PortfolioMobileView
+            filteredData={filteredData}
+            portfolioData={portfolioData}
+            filter={filter}
+          />
+        ) : (
+          <PortfolioDesktopView
+            filteredData={filteredData}
+            portfolioData={portfolioData}
+            filter={filter}
+          />
+        )}
+      </Group>
+
+      <TopScroller />
+    </>
+  );
+};

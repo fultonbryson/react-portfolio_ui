@@ -2,9 +2,15 @@ import { Flex, Group } from "@mantine/core";
 
 import { HeaderText, SubheaderText } from "../../styles/pageElementStyles";
 import { NavDrawer } from "./NavDrawer";
+import { NavSection } from "./NavSection";
 import { Colors } from "../../styles/styleVariables";
+import { useSelector } from "react-redux";
+import { RootState } from "../../utils/store";
 
 export const Header = (props: any) => {
+  const displayType = useSelector(
+    (state: RootState) => state.screen.displayType
+  );
   return (
     <Group
       position='apart'
@@ -15,7 +21,7 @@ export const Header = (props: any) => {
         background: Colors.primary,
         height: 100,
       }}>
-      <NavDrawer />
+      {displayType === "MOBILE" ? <NavDrawer /> : <NavSection />}
 
       <Flex direction='column' align='flex-end' justify='center'>
         <HeaderText>{props.title}</HeaderText>

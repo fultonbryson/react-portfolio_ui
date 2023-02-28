@@ -1,7 +1,7 @@
-import { Bio } from "../components/pages/Bio";
-import { Blog } from "../components/pages/Blog";
-import { Contact } from "../components/pages/Contact";
-import { Home } from "../components/pages/Home";
+import { Bio } from "../components/bio/Bio";
+// import { Blog } from "../components/pages/Blog";
+import { Contact } from "../components/contact/Contact";
+import { Home } from "../components/home/Home";
 
 export const appRoutes = [
   {
