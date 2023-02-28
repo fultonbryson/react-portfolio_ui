@@ -1,19 +1,5 @@
-import {
-  ActionIcon,
-  Affix,
-  Box,
-  Flex,
-  Group,
-  Image,
-  Text,
-  Transition,
-} from "@mantine/core";
+import { ActionIcon, Affix, Transition } from "@mantine/core";
 import { Header } from "../elements/Header";
-import me from "../../content/assets/me.jpg";
-import show from "../../content/assets/show.jpg";
-import bass from "../../content/assets/bass.jpg";
-import { aboutMeOne, aboutMeThree, aboutMeTwo } from "../../content/bioContent";
-import { Colors, Fonts } from "../../styles/styleVariables";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import { useWindowScroll } from "@mantine/hooks";
