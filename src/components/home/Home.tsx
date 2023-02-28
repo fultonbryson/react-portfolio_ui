@@ -34,8 +34,6 @@ export const Home = () => {
       .get(`${API_URL}/portfolio/portfolio_items`)
       .then((res) => {
         setPortfolioData(res.data.portfolio_items);
-
-        console.log(res.data.portfolio_items);
       })
       .catch((err) => {
         console.log("Error Getting Portfolio Items", err);
@@ -51,13 +49,12 @@ export const Home = () => {
       <Header title='Bryson Fulton' subtitle='Full Stack Developer' />
 
       <Flex
-        mih={50}
+        mih={100}
         bg={
           displayType === "MOBILE" ? "rgba(0, 0, 0, 0.1)" : "rgba(0, 0, 0, 0)"
         }
         justify='flex-start'
-        align='flex-start'
-        sx={{ top: 100 }}>
+        align='flex-start'>
         <FilterButton
           handleFilter={handleFilter}
           filterCategory={"Maintainer"}
