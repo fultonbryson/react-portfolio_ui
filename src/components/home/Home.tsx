@@ -8,7 +8,6 @@ import { RootState } from "../../utils/store";
 import { TopScroller } from "../elements/pageElements";
 import {
   FilterButton,
-  PortfolioCard,
   PortfolioDesktopView,
   PortfolioMobileView,
 } from "./homeElements";
@@ -28,16 +27,6 @@ export const Home = () => {
         return item.category === filter;
       })
     );
-  };
-
-  const portfolioItems = () => {
-    return filteredData.length >= 0 && filter
-      ? filteredData.map((item) => {
-          return <PortfolioCard key={item.id} portfolioItem={item} />;
-        })
-      : portfolioData.map((item) => {
-          return <PortfolioCard key={item.id} portfolioItem={item} />;
-        });
   };
 
   const getPortfolioItems = () => {

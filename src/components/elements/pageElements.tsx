@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Colors, Fonts } from "../../styles/styleVariables";
-import { ActionIcon, Affix, Button, Transition } from "@mantine/core";
+import { ActionIcon, Affix, Transition } from "@mantine/core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import { useWindowScroll } from "@mantine/hooks";

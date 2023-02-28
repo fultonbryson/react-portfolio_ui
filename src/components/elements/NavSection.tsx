@@ -1,4 +1,4 @@
-import { Flex, Group } from "@mantine/core";
+import { Flex } from "@mantine/core";
 import { appRoutes } from "../../utils/Routes";
 import { NavItem } from "./pageElements";
 

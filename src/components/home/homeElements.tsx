@@ -12,7 +12,7 @@ import {
   Modal,
 } from "@mantine/core";
 import { Carousel } from "@mantine/carousel";
-import { Colors, Fonts } from "../../styles/styleVariables";
+import { Fonts } from "../../styles/styleVariables";
 import { useState } from "react";
 
 //
