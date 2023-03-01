@@ -1,4 +1,4 @@
-import { Flex, Group, Image, Text } from "@mantine/core";
+import { Flex, Group, Text } from "@mantine/core";
 import { Header } from "../elements/Header";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";

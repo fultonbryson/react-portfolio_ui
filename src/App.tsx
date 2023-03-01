@@ -23,6 +23,7 @@ function App() {
     return () => {
       window.removeEventListener("resize", setScreenSize);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [screenSize]);
 
   return (
