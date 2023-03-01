@@ -8,26 +8,18 @@ import {
   faGithub,
 } from "@fortawesome/free-brands-svg-icons";
 import { Colors, Fonts } from "../../styles/styleVariables";
-import desk from "../../content/assets/desk.jpg";
 
 export const Contact = () => {
   return (
     <>
       <Header title='Contact' subtitle='And Networks' />
-      <Flex
-        h='80vh'
-        direction='column'
-        justify='space-between'
-        align='center'
-        gap={16}>
-        <Group p={26} m={36} position='center' h='100%' sx={{ width: "100%" }}>
-          <Flex
-            w={400}
-            justify='space-between'
-            align='center'
-            direction='column'
-            sx={{ maxHeight: 400, height: "100%" }}>
-            <Flex w={"100%"} align='center' justify='space-between'>
+      <Group position='center'>
+        <Group
+          p={26}
+          h='80vh'
+          sx={{ width: "100%", height: "100%", maxWidth: 700 }}>
+          <Flex w='100%' direction='column' h='30vh' justify='space-evenly'>
+            <Flex w={"100%"} align='start' justify='space-between'>
               <FontAwesomeIcon
                 size='xl'
                 color={Colors.primary}
@@ -48,48 +40,44 @@ export const Contact = () => {
                 dev.brysonfulton@gmail.com
               </Text>
             </Flex>
+          </Flex>
 
-            <Flex w={"100%"} align='center' justify='space-between'>
-              <a
-                href='https://www.linkedin.com/in/bryson-fulton-79b771206/'
-                target='_blank'
-                rel='noreferrer'>
-                <FontAwesomeIcon
-                  size='xl'
-                  color={Colors.primary}
-                  icon={faLinkedin}
-                />
-              </a>
+          <Flex w={"100%"} align='center' justify='space-between'>
+            <a
+              href='https://www.linkedin.com/in/bryson-fulton-79b771206/'
+              target='_blank'
+              rel='noreferrer'>
+              <FontAwesomeIcon
+                size='xl'
+                color={Colors.primary}
+                icon={faLinkedin}
+              />
+            </a>
 
-              <a
-                href='https://github.com/fultonbryson'
-                target='_blank'
-                rel='noreferrer'>
-                <FontAwesomeIcon
-                  size='xl'
-                  color={Colors.primary}
-                  icon={faGithub}
-                />
-              </a>
+            <a
+              href='https://github.com/fultonbryson'
+              target='_blank'
+              rel='noreferrer'>
+              <FontAwesomeIcon
+                size='xl'
+                color={Colors.primary}
+                icon={faGithub}
+              />
+            </a>
 
-              <a
-                href='https://twitter.com/brysonpfulton'
-                target='_blank'
-                rel='noreferrer'>
-                <FontAwesomeIcon
-                  size='xl'
-                  color={Colors.primary}
-                  icon={faTwitter}
-                />
-              </a>
-            </Flex>
+            <a
+              href='https://twitter.com/brysonpfulton'
+              target='_blank'
+              rel='noreferrer'>
+              <FontAwesomeIcon
+                size='xl'
+                color={Colors.primary}
+                icon={faTwitter}
+              />
+            </a>
           </Flex>
         </Group>
-
-        <Group position='center' sx={{ maxWidth: 500, width: "90%" }}>
-          <Image src={desk} radius='md' />
-        </Group>
-      </Flex>
+      </Group>
     </>
   );
 };
