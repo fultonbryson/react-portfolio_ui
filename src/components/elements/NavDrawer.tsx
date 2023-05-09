@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Drawer, Burger, Group } from "@mantine/core";
 import { Colors, Fonts } from "../../styles/styleVariables";
-import { NavItem } from "./pageElements";
+import { HeaderNavItem } from "./pageElements";
 import { appRoutes } from "../../utils/Routes";
 
 export const NavDrawer = () => {
@@ -30,7 +30,7 @@ export const NavDrawer = () => {
           position='left'
           sx={{ flexDirection: "column", alignItems: "flex-start" }}>
           {appRoutes.map((route) => (
-            <NavItem
+            <HeaderNavItem
               key={route.path}
               path={route.path}
               title={route.title}

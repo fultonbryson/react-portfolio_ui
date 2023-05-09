@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { setDisplayData } from "./utils/slices/screenSlice";
 import { Routes, Route } from "react-router-dom";
 import { appRoutes } from "./utils/Routes";
+import { Footer } from "./components/elements/pageElements";
 
 function App() {
   const dispatch = useDispatch();
@@ -33,6 +34,8 @@ function App() {
           <Route key={route.path} path={route.path} element={route.element} />
         ))}
       </Routes>
+
+      <Footer />
     </>
   );
 }

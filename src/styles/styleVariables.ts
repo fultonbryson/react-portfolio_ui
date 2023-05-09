@@ -2,7 +2,7 @@ export const Colors = {
   primary: "#BA42AB",
   white: "#ffffff",
   lightGrey: "#BABABA",
-  darkGrey: "919091",
+  darkGrey: "#919091",
   black: "#000000",
 };
 

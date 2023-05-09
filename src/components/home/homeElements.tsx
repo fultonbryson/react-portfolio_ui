@@ -15,6 +15,7 @@ import { Carousel } from "@mantine/carousel";
 import { Fonts } from "../../styles/styleVariables";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { TopScroller } from "../elements/pageElements";
 
 //
 
@@ -256,31 +257,33 @@ export const PortfolioMobileView = (props: any) => {
 
 export const PortfolioDesktopView = (props: any) => {
   return (
-    <Carousel
-      slideSize='30%'
-      height={350}
-      slideGap='xs'
-      controlSize={50}
-      loop
-      sx={{
-        width: "100vw",
-        borderRadius: 4,
-      }}>
-      {props.filteredData.length >= 0 && props.filter
-        ? props.filteredData.map((item: any) => {
-            return (
-              <Carousel.Slide key={item.id}>
-                <CarouselCard portfolioItem={item} />
-              </Carousel.Slide>
-            );
-          })
-        : props.portfolioData.map((item: any) => {
-            return (
-              <Carousel.Slide key={item.id}>
-                <CarouselCard portfolioItem={item} />
-              </Carousel.Slide>
-            );
-          })}
-    </Carousel>
+    <Group sx={{ height: "100%" }}>
+      <Carousel
+        slideSize='30%'
+        height={"100%"}
+        slideGap='xs'
+        controlSize={50}
+        loop
+        sx={{
+          width: "100vw",
+          borderRadius: 4,
+        }}>
+        {props.filteredData.length >= 0 && props.filter
+          ? props.filteredData.map((item: any) => {
+              return (
+                <Carousel.Slide key={item.id}>
+                  <CarouselCard portfolioItem={item} />
+                </Carousel.Slide>
+              );
+            })
+          : props.portfolioData.map((item: any) => {
+              return (
+                <Carousel.Slide key={item.id}>
+                  <CarouselCard portfolioItem={item} />
+                </Carousel.Slide>
+              );
+            })}
+      </Carousel>
+    </Group>
   );
 };

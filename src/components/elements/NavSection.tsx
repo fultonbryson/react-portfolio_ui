@@ -1,15 +1,35 @@
 import { Flex } from "@mantine/core";
 import { appRoutes } from "../../utils/Routes";
-import { NavItem } from "./pageElements";
+import { HeaderNavItem, FooterNavItem } from "./pageElements";
 
-export const NavSection = () => {
+export const HeaderNavSection = () => {
   return (
     <Flex
       align='start'
       justify='space-between'
-      sx={{ width: "100%", maxWidth: 250, fontSize: 22 }}>
+      sx={{
+        width: "100%",
+        maxWidth: 250,
+        fontSize: 22,
+      }}>
       {appRoutes.map((route) => (
-        <NavItem key={route.path} path={route.path} title={route.title} />
+        <HeaderNavItem key={route.path} path={route.path} title={route.title} />
+      ))}
+    </Flex>
+  );
+};
+
+export const FooterNavSection = () => {
+  return (
+    <Flex
+      align='start'
+      justify='space-between'
+      sx={{
+        width: "100%",
+        maxWidth: 150,
+      }}>
+      {appRoutes.map((route) => (
+        <FooterNavItem key={route.path} path={route.path} title={route.title} />
       ))}
     </Flex>
   );
