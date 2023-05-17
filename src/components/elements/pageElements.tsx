@@ -10,7 +10,7 @@ import {
 } from "@mantine/core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
-import { useHover, useWindowScroll } from "@mantine/hooks";
+import { useWindowScroll } from "@mantine/hooks";
 import { useSelector } from "react-redux";
 import { RootState } from "../../utils/store";
 import { FooterNavSection } from "./NavSection";
@@ -113,7 +113,7 @@ export const DesktopFooter = () => {
         <Flex>
           <Image src={me} width={60} radius={100} />
         </Flex>
-        <Flex sx={{ fontSize: 12, color: Colors.lightGrey }}>
+        <Flex sx={{ paddingRight: 12, fontSize: 12, color: Colors.lightGrey }}>
           2023 &#169; Bryson Fulton | All Rights Reserved
         </Flex>
       </Group>
