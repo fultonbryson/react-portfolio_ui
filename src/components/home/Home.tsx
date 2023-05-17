@@ -5,7 +5,6 @@ import axios from "axios";
 import { Flex, Group } from "@mantine/core";
 import { useSelector } from "react-redux";
 import { RootState } from "../../utils/store";
-import { Footer, TopScroller } from "../elements/pageElements";
 import {
   FilterButton,
   PortfolioDesktopView,
@@ -72,7 +71,7 @@ export const Home = () => {
         />
       </Flex>
 
-      <Group position='center' sx={{ height: "60vh" }}>
+      <Group position='center'>
         {displayType === "MOBILE" ? (
           <PortfolioMobileView
             filteredData={filteredData}

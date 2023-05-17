@@ -235,23 +235,27 @@ export const CarouselCard = (props: any) => {
 
 export const PortfolioMobileView = (props: any) => {
   return (
-    <Flex
-      w='100vw'
-      mih={50}
-      bg='rgba(0, 0, 0, .1)'
-      gap='md'
-      justify='space-between'
-      align='center'
-      direction='column'
-      pb={16}>
-      {props.filteredData.length >= 0 && props.filter
-        ? props.filteredData.map((item: any) => {
-            return <PortfolioCard key={item.id} portfolioItem={item} />;
-          })
-        : props.portfolioData.map((item: any) => {
-            return <PortfolioCard key={item.id} portfolioItem={item} />;
-          })}
-    </Flex>
+    <>
+      <Flex
+        w='100vw'
+        h='100%'
+        mih={50}
+        bg='rgba(0, 0, 0, .1)'
+        gap='md'
+        justify='space-between'
+        align='center'
+        direction='column'
+        pb={16}>
+        {props.filteredData.length >= 0 && props.filter
+          ? props.filteredData.map((item: any) => {
+              return <PortfolioCard key={item.id} portfolioItem={item} />;
+            })
+          : props.portfolioData.map((item: any) => {
+              return <PortfolioCard key={item.id} portfolioItem={item} />;
+            })}
+      </Flex>
+      <TopScroller />
+    </>
   );
 };
 
