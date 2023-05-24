@@ -15,8 +15,3 @@ export const SubheaderText = styled.p`
   color: ${Colors.white};
   margin: 0px;
 `;
-
-// export const LinkText = styled.a`
-//   height: 20px;
-//   margin: 0;
-// `;

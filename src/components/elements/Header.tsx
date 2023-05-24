@@ -1,4 +1,4 @@
-import { Flex, Group, Image } from "@mantine/core";
+import { Flex } from "@mantine/core";
 
 import { HeaderText, SubheaderText } from "../../styles/pageElementStyles";
 import { NavDrawer } from "./NavDrawer";
@@ -7,8 +7,6 @@ import { Colors } from "../../styles/styleVariables";
 import { useSelector } from "react-redux";
 import { RootState } from "../../utils/store";
 import { HeroSection } from "./pageElements";
-
-import me from "../../content/assets/me.jpg";
 
 export const DesktopHeader = () => (
   <Flex

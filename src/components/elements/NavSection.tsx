@@ -1,6 +1,6 @@
 import { Flex } from "@mantine/core";
 import { appRoutes } from "../../utils/Routes";
-import { HeaderNavItem, FooterNavItem } from "./pageElements";
+import { HeaderNavItem } from "./pageElements";
 import { Colors } from "../../styles/styleVariables";
 
 export const HeaderNavSection = () => {
@@ -19,22 +19,6 @@ export const HeaderNavSection = () => {
       }}>
       {appRoutes.map((route) => (
         <HeaderNavItem key={route.path} path={route.path} title={route.title} />
-      ))}
-    </Flex>
-  );
-};
-
-export const FooterNavSection = () => {
-  return (
-    <Flex
-      align='start'
-      justify='space-between'
-      sx={{
-        width: "100%",
-        maxWidth: 150,
-      }}>
-      {appRoutes.map((route) => (
-        <FooterNavItem key={route.path} path={route.path} title={route.title} />
       ))}
     </Flex>
   );

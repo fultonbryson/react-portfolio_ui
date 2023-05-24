@@ -10,8 +10,6 @@ import {
   PortfolioDesktopView,
   PortfolioMobileView,
 } from "./homeElements";
-import { HeaderNavSection } from "../elements/NavSection";
-import { HeroSection } from "../elements/pageElements";
 
 export const Home = () => {
   const [portfolioData, setPortfolioData] = useState<any[]>([]);
