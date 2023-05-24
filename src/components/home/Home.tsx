@@ -47,15 +47,7 @@ export const Home = () => {
 
   return (
     <>
-      <Flex
-        justify='space-between'
-        align='center'
-        sx={{
-          paddingRight: 42,
-        }}>
-        <HeaderNavSection />
-        <HeroSection />
-      </Flex>
+      <Header title='Bryson Fulton' subtitle='Full Stack Developer' />
 
       <Flex
         mih={100}

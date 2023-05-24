@@ -40,7 +40,7 @@ export const NavDrawer = () => {
         </Group>
       </Drawer>
 
-      <Group position='left'>
+      <Group position='left' sx={{ width: "25%" }}>
         <Burger
           size='md'
           opened={opened}
