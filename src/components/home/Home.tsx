@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { API_URL } from "../../utils/API";
 import { Header } from "../elements/Header";
 import axios from "axios";
-import { Flex, Group } from "@mantine/core";
+import { BackgroundImage, Flex, Group } from "@mantine/core";
 import { useSelector } from "react-redux";
 import { RootState } from "../../utils/store";
 import {
@@ -10,6 +10,8 @@ import {
   PortfolioDesktopView,
   PortfolioMobileView,
 } from "./homeElements";
+
+import neuronConstellation from "../../content/assets/neuronConstellation.jpg";
 
 export const Home = () => {
   const [portfolioData, setPortfolioData] = useState<any[]>([]);
@@ -44,10 +46,15 @@ export const Home = () => {
   }, []);
 
   return (
-    <>
-      <Header title='Bryson Fulton' subtitle='Full Stack Developer' />
+    <Flex
+      direction='column'
+      align='center'
+      justify='center'
+      sx={{ height: "100vh", width: "100vw" }}>
+      <BackgroundImage src={neuronConstellation} h='100%'>
+        <Header title='Bryson Fulton' subtitle='Full Stack Developer' />
 
-      <Flex
+        {/* <Flex
         mih={100}
         bg={
           displayType === "MOBILE" ? "rgba(0, 0, 0, 0.1)" : "rgba(0, 0, 0, 0)"
@@ -69,9 +76,8 @@ export const Home = () => {
           filterCategory={""}
           filterType='All'
         />
-      </Flex>
+      </Flex> */}
 
-      <Group position='center'>
         {displayType === "MOBILE" ? (
           <PortfolioMobileView
             filteredData={filteredData}
@@ -83,9 +89,11 @@ export const Home = () => {
             filteredData={filteredData}
             portfolioData={portfolioData}
             filter={filter}
+            handleFilter={handleFilter}
+            displayType={displayType}
           />
         )}
-      </Group>
-    </>
+      </BackgroundImage>
+    </Flex>
   );
 };

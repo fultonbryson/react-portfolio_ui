@@ -13,7 +13,7 @@ export const DesktopHeader = () => (
     justify='space-between'
     align='center'
     sx={{
-      paddingRight: 42,
+      width: "100vw",
     }}>
     <HeaderNavSection />
     <HeroSection />

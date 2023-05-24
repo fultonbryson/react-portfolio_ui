@@ -12,7 +12,7 @@ import {
   Modal,
 } from "@mantine/core";
 import { Carousel } from "@mantine/carousel";
-import { Fonts } from "../../styles/styleVariables";
+import { Colors, Fonts } from "../../styles/styleVariables";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { TopScroller } from "../elements/pageElements";
@@ -113,26 +113,22 @@ export const CarouselCard = (props: any) => {
   return (
     <Card
       shadow='sm'
-      p='lg'
       radius='md'
       withBorder
       sx={{
         maxWidth: 375,
         minWidth: 300,
         width: "80%",
+        height: 450,
       }}
       key={props.portfolioItem.id}>
-      <Card.Section sx={{ maxHeight: 160, height: 160 }} mx='auto'>
+      <Card.Section sx={{ height: 300 }}>
         <Box>
-          <BackgroundImage
-            mx='auto'
-            mt={20}
-            src={props.portfolioItem.thumb_image_url}
-            radius='sm'>
+          <BackgroundImage src={props.portfolioItem.thumb_image_url}>
             <Center>
               <Box
                 sx={{
-                  height: 160,
+                  height: 300,
                   alignItems: "center",
                   justifyContent: "center",
                   display: "flex",
@@ -147,19 +143,21 @@ export const CarouselCard = (props: any) => {
         </Box>
       </Card.Section>
 
-      <Group position='apart' mt='md' mb='xs'>
-        <Text weight={500} sx={{ fontFamily: Fonts.primary }}>
-          {props.portfolioItem.name}
-        </Text>
-        {props.portfolioItem.category && (
-          <Badge
-            sx={{ fontFamily: Fonts.primary, letterSpacing: 1 }}
-            color='green'
-            variant='light'>
-            {props.portfolioItem.category}
-          </Badge>
-        )}
-      </Group>
+      <Card.Section>
+        <Group position='apart' p='lg' mb='xs'>
+          <Text weight={500} sx={{ fontFamily: Fonts.primary }}>
+            {props.portfolioItem.name}
+          </Text>
+          {props.portfolioItem.category && (
+            <Badge
+              sx={{ fontFamily: Fonts.primary, letterSpacing: 1 }}
+              color='green'
+              variant='light'>
+              {props.portfolioItem.category}
+            </Badge>
+          )}
+        </Group>
+      </Card.Section>
 
       <Modal
         title={props.portfolioItem.name}
@@ -261,16 +259,25 @@ export const PortfolioMobileView = (props: any) => {
 
 export const PortfolioDesktopView = (props: any) => {
   return (
-    <Group sx={{ height: "100%" }}>
+    <Flex
+      sx={{ height: "100%" }}
+      direction='column'
+      align='center'
+      justify='center'>
       <Carousel
         slideSize='30%'
-        height={"100%"}
+        height='50vh'
         slideGap='xs'
         controlSize={50}
         loop
         sx={{
           width: "100vw",
-          borderRadius: 4,
+          borderTop: `2px solid ${Colors.lightGrey}`,
+          borderBottom: `2px solid ${Colors.lightGrey}`,
+          paddingTop: 24,
+          paddingBottom: 24,
+          boxShadow: "0 5px 10px rgba(0, 0, 0, 0.2)  ",
+          background: Colors.white,
         }}>
         {props.filteredData.length >= 0 && props.filter
           ? props.filteredData.map((item: any) => {
@@ -288,6 +295,31 @@ export const PortfolioDesktopView = (props: any) => {
               );
             })}
       </Carousel>
-    </Group>
+
+      <Flex
+        sx={{ width: "50%" }}
+        mih={100}
+        bg={
+          props.displayType === "MOBILE"
+            ? "rgba(0, 0, 0, 0.1)"
+            : "rgba(0, 0, 0, 0)"
+        }>
+        <FilterButton
+          handleFilter={props.handleFilter}
+          filterCategory={"Maintainer"}
+          filterType={"Maintainer"}
+        />
+        <FilterButton
+          handleFilter={props.handleFilter}
+          filterCategory='Contributor'
+          filterType='Contributor'
+        />
+        <FilterButton
+          handleFilter={props.handleFilter}
+          filterCategory={""}
+          filterType='All'
+        />
+      </Flex>
+    </Flex>
   );
 };
