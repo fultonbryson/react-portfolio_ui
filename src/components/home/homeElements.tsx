@@ -17,9 +17,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { TopScroller } from "../elements/pageElements";
 
-//
-
-export const FilterButton = (props: any) => {
+export const MobileFilterButton = (props: any) => {
   return (
     <Button
       variant='light'
@@ -31,6 +29,66 @@ export const FilterButton = (props: any) => {
     </Button>
   );
 };
+
+export const DesktopFilterButton = (props: any) => (
+  <Button
+    variant='light'
+    color='grape'
+    radius='md'
+    size='lg'
+    onClick={() => props.handleFilter(props.filterCategory)}>
+    {props.filterType}
+  </Button>
+);
+
+export const DesktopFilterSection = (props: any) => (
+  <Flex
+    align='center'
+    justify='space-evenly'
+    sx={{
+      width: "50%",
+      height: 100,
+      borderBottomLeftRadius: 4,
+      borderBottomRightRadius: 4,
+    }}
+    bg='rgba(255, 255, 255, 1)'>
+    <DesktopFilterButton
+      handleFilter={props.handleFilter}
+      filterCategory={"Maintainer"}
+      filterType={"Maintainer"}
+    />
+    <DesktopFilterButton
+      handleFilter={props.handleFilter}
+      filterCategory='Contributor'
+      filterType='Contributor'
+    />
+    <DesktopFilterButton
+      handleFilter={props.handleFilter}
+      filterCategory={""}
+      filterType='All'
+    />
+  </Flex>
+);
+
+export const MobileFilterSection = (props: any) => (
+  <Flex sx={{ width: "100%", paddingBottom: 24 }} bg='rgba(0, 0, 0, 0.1)'>
+    <MobileFilterButton
+      handleFilter={props.handleFilter}
+      filterCategory={"Maintainer"}
+      filterType={"Maintainer"}
+    />
+    <MobileFilterButton
+      handleFilter={props.handleFilter}
+      filterCategory='Contributor'
+      filterType='Contributor'
+    />
+    <MobileFilterButton
+      handleFilter={props.handleFilter}
+      filterCategory={""}
+      filterType='All'
+    />
+  </Flex>
+);
 
 export const PortfolioCard = (props: any) => {
   return (
@@ -233,34 +291,12 @@ export const CarouselCard = (props: any) => {
 export const PortfolioMobileView = (props: any) => {
   return (
     <>
-      <Flex
-        sx={{ width: "100%", paddingBottom: 24 }}
-        bg={
-          props.displayType === "MOBILE"
-            ? "rgba(0, 0, 0, 0.1)"
-            : "rgba(0, 0, 0, 0)"
-        }>
-        <FilterButton
-          handleFilter={props.handleFilter}
-          filterCategory={"Maintainer"}
-          filterType={"Maintainer"}
-        />
-        <FilterButton
-          handleFilter={props.handleFilter}
-          filterCategory='Contributor'
-          filterType='Contributor'
-        />
-        <FilterButton
-          handleFilter={props.handleFilter}
-          filterCategory={""}
-          filterType='All'
-        />
-      </Flex>
+      <MobileFilterSection handleFilter={props.handleFilter} />
 
       <Flex
         w='100vw'
         h='100%'
-        mih={50}
+        mih='80vh'
         bg='rgba(0, 0, 0, .1)'
         gap='md'
         justify='space-between'
@@ -299,10 +335,8 @@ export const PortfolioDesktopView = (props: any) => {
         sx={{
           width: "100vw",
           borderTop: `2px solid ${Colors.lightGrey}`,
-          borderBottom: `2px solid ${Colors.lightGrey}`,
           paddingTop: 24,
           paddingBottom: 24,
-          boxShadow: "0 5px 10px rgba(0, 0, 0, 0.2)  ",
           background: Colors.white,
         }}>
         {props.filteredData.length >= 0 && props.filter
@@ -322,30 +356,7 @@ export const PortfolioDesktopView = (props: any) => {
             })}
       </Carousel>
 
-      <Flex
-        sx={{ width: "50%" }}
-        mih={100}
-        bg={
-          props.displayType === "MOBILE"
-            ? "rgba(0, 0, 0, 0.1)"
-            : "rgba(0, 0, 0, 0)"
-        }>
-        <FilterButton
-          handleFilter={props.handleFilter}
-          filterCategory={"Maintainer"}
-          filterType={"Maintainer"}
-        />
-        <FilterButton
-          handleFilter={props.handleFilter}
-          filterCategory='Contributor'
-          filterType='Contributor'
-        />
-        <FilterButton
-          handleFilter={props.handleFilter}
-          filterCategory={""}
-          filterType='All'
-        />
-      </Flex>
+      <DesktopFilterSection handleFilter={props.handleFilter} />
     </Flex>
   );
 };

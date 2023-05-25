@@ -2,14 +2,10 @@ import { useEffect, useState } from "react";
 import { API_URL } from "../../utils/API";
 import { Header } from "../elements/Header";
 import axios from "axios";
-import { BackgroundImage, Flex, Group } from "@mantine/core";
+import { BackgroundImage, Flex } from "@mantine/core";
 import { useSelector } from "react-redux";
 import { RootState } from "../../utils/store";
-import {
-  FilterButton,
-  PortfolioDesktopView,
-  PortfolioMobileView,
-} from "./homeElements";
+import { PortfolioDesktopView, PortfolioMobileView } from "./homeElements";
 
 import neuronConstellation from "../../content/assets/neuronConstellation.jpg";
 
@@ -61,6 +57,7 @@ export const Home = () => {
           <PortfolioMobileView
             filteredData={filteredData}
             portfolioData={portfolioData}
+            handleFilter={handleFilter}
             filter={filter}
           />
         ) : (
