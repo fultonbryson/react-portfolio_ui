@@ -1,15 +1,24 @@
 import { Flex } from "@mantine/core";
 import { appRoutes } from "../../utils/Routes";
-import { NavItem } from "./pageElements";
+import { HeaderNavItem } from "./pageElements";
+import { Colors } from "../../styles/styleVariables";
 
-export const NavSection = () => {
+export const HeaderNavSection = () => {
   return (
     <Flex
-      align='start'
+      align='center'
       justify='space-between'
-      sx={{ width: "100%", maxWidth: 250, fontSize: 22 }}>
+      sx={{
+        width: "100%",
+        height: 70,
+        maxWidth: 450,
+        fontSize: 22,
+        background: Colors.primary,
+        padding: "8px 24px",
+        borderRadius: "0px 0px 50px 0px",
+      }}>
       {appRoutes.map((route) => (
-        <NavItem key={route.path} path={route.path} title={route.title} />
+        <HeaderNavItem key={route.path} path={route.path} title={route.title} />
       ))}
     </Flex>
   );

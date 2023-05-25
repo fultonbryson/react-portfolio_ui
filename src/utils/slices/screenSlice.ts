@@ -10,7 +10,7 @@ export const screenSlice = createSlice({
   initialState,
   reducers: {
     setDisplayData: (state, action: PayloadAction<number>) => {
-      action.payload >= 600
+      action.payload >= 900
         ? (state.displayType = "DESKTOP")
         : (state.displayType = "MOBILE");
     },

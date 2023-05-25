@@ -2,15 +2,12 @@ import { useEffect, useState } from "react";
 import { API_URL } from "../../utils/API";
 import { Header } from "../elements/Header";
 import axios from "axios";
-import { Flex, Group } from "@mantine/core";
+import { BackgroundImage, Flex } from "@mantine/core";
 import { useSelector } from "react-redux";
 import { RootState } from "../../utils/store";
-import { TopScroller } from "../elements/pageElements";
-import {
-  FilterButton,
-  PortfolioDesktopView,
-  PortfolioMobileView,
-} from "./homeElements";
+import { PortfolioDesktopView, PortfolioMobileView } from "./homeElements";
+
+import neuronConstellation from "../../content/assets/neuronConstellation.jpg";
 
 export const Home = () => {
   const [portfolioData, setPortfolioData] = useState<any[]>([]);
@@ -45,38 +42,22 @@ export const Home = () => {
   }, []);
 
   return (
-    <>
-      <Header title='Bryson Fulton' subtitle='Full Stack Developer' />
+    <Flex
+      direction='column'
+      align='center'
+      justify='center'
+      sx={{
+        height: displayType === "MOBILE" ? "100%" : "100vh",
+        width: "100vw",
+      }}>
+      <BackgroundImage src={neuronConstellation} h='100%'>
+        <Header title='Bryson Fulton' subtitle='Full Stack Developer' />
 
-      <Flex
-        mih={100}
-        bg={
-          displayType === "MOBILE" ? "rgba(0, 0, 0, 0.1)" : "rgba(0, 0, 0, 0)"
-        }
-        justify='flex-start'
-        align='flex-start'>
-        <FilterButton
-          handleFilter={handleFilter}
-          filterCategory={"Maintainer"}
-          filterType={"Maintainer"}
-        />
-        <FilterButton
-          handleFilter={handleFilter}
-          filterCategory='Contributor'
-          filterType='Contributor'
-        />
-        <FilterButton
-          handleFilter={handleFilter}
-          filterCategory={""}
-          filterType='All'
-        />
-      </Flex>
-
-      <Group position='center'>
         {displayType === "MOBILE" ? (
           <PortfolioMobileView
             filteredData={filteredData}
             portfolioData={portfolioData}
+            handleFilter={handleFilter}
             filter={filter}
           />
         ) : (
@@ -84,11 +65,11 @@ export const Home = () => {
             filteredData={filteredData}
             portfolioData={portfolioData}
             filter={filter}
+            handleFilter={handleFilter}
+            displayType={displayType}
           />
         )}
-      </Group>
-
-      <TopScroller />
-    </>
+      </BackgroundImage>
+    </Flex>
   );
 };
