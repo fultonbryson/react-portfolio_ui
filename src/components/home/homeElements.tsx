@@ -173,18 +173,22 @@ export const CarouselCard = (props: any) => {
         shadow='sm'
         radius='md'
         withBorder
+        mah={500}
+        maw={500}
         sx={{
-          width: 500,
-          height: 500,
+          width: "100%",
+          height: "100%",
         }}
         key={props.portfolioItem.id}>
-        <Card.Section sx={{ height: 350 }}>
+        <Card.Section sx={{ height: "70%", maxHeight: 350 }}>
           <Box>
             <BackgroundImage src={props.portfolioItem.thumb_image_url}>
               <Center>
                 <Box
                   sx={{
-                    height: 350,
+                    height: "100%",
+                    minHeight: 250,
+                    maxHeight: 350,
                     alignItems: "center",
                     justifyContent: "center",
                     display: "flex",
