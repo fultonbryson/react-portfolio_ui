@@ -50,33 +50,12 @@ export const Home = () => {
       direction='column'
       align='center'
       justify='center'
-      sx={{ height: "100vh", width: "100vw" }}>
+      sx={{
+        height: displayType === "MOBILE" ? "100%" : "100vh",
+        width: "100vw",
+      }}>
       <BackgroundImage src={neuronConstellation} h='100%'>
         <Header title='Bryson Fulton' subtitle='Full Stack Developer' />
-
-        {/* <Flex
-        mih={100}
-        bg={
-          displayType === "MOBILE" ? "rgba(0, 0, 0, 0.1)" : "rgba(0, 0, 0, 0)"
-        }
-        justify='flex-start'
-        align='flex-start'>
-        <FilterButton
-          handleFilter={handleFilter}
-          filterCategory={"Maintainer"}
-          filterType={"Maintainer"}
-        />
-        <FilterButton
-          handleFilter={handleFilter}
-          filterCategory='Contributor'
-          filterType='Contributor'
-        />
-        <FilterButton
-          handleFilter={handleFilter}
-          filterCategory={""}
-          filterType='All'
-        />
-      </Flex> */}
 
         {displayType === "MOBILE" ? (
           <PortfolioMobileView

@@ -135,7 +135,7 @@ export const DesktopFooter = () => {
         height: 120,
         position: "absolute",
         bottom: -120,
-        boxShadow: "0 -5px 12px rgba(0, 0, 0, 0.3)",
+        boxShadow: "0 -5px 12px rgba(0, 0, 0, 0.5)",
       }}>
       <Group position='left' sx={{ paddingLeft: 12, width: "100%" }} />
 
